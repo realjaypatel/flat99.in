@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <h2 class="mb-4">Property Listings</h2>
+
+  <!-- Search / Filter -->
+  <form method="GET" action="/properties" class="row g-2 mb-4">
+    <div class="col-md-6">
+      <input type="text" name="q" placeholder="Search..." value="{{ q }}" class="form-control">
+    </div>
+    <div class="col-md-4">
+      <input type="text" name="property_type" placeholder="Property Type" value="{{ prop_type }}" class="form-control">
+    </div>
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-primary w-100">Filter</button>
+    </div>
+  </form>
+
+  <div class="row">
+    {% for prop in properties %}
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <a href="/property/{{ prop._id }}" style="text-decoration:none; color:inherit;">
+          <div class="card h-100">
+            {% if prop.images and prop.images|length > 0 %}
+              <div id="carousel{{ prop._id }}" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  {% for img in prop.images %}
+                    <div class="carousel-item {% if loop.index == 1 %}active{% endif %}">
+                      <img src="/{{ img }}" class="d-block w-100 img-fluid" alt="Property Image">
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ prop.title }}</h5>
+              <p class="card-text">{{ prop.description }}</p>
+              <p class="text-muted">Listed by {{ prop.username }}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add Property</h2>
+<form method="POST" enctype="multipart/form-data">
+
+  <div class="mb-3">
+    <label class="form-label">Title</label>
+    <input type="text" name="title" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Description</label>
+    <textarea name="description" class="form-control" required></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Property Type</label>
+    <input type="text" name="property_type" class="form-control" placeholder="Apartment / Room / PG" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Rent</label>
+    <input type="number" name="rent" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Security Deposit</label>
+    <input type="number" name="deposit" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Images</label>
+    <input type="file" name="images" class="form-control" multiple>
+    <small class="text-muted">You can upload multiple images</small>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>
+{% endblock %}

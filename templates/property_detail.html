@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ prop.title }}</h2>
+
+{% if prop.images and prop.images|length > 0 %}
+  <div id="propertyCarousel" class="carousel slide mb-3" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      {% for img in prop.images %}
+        <div class="carousel-item {% if loop.index == 1 %}active{% endif %}">
+          <img src="/{{ img }}" class="d-block w-100 img-fluid" alt="Property Image">
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+
+<p><strong>Property Type:</strong> {{ prop.property_type }}</p>
+<p><strong>Rent:</strong> ₹{{ prop.rent }}</p>
+<p><strong>Security Deposit:</strong> ₹{{ prop.deposit }}</p>
+<p>{{ prop.description }}</p>
+
+<h6 class="mt-4">Owner Details</h6>
+<p>Listed by <strong>{{ prop.username }}</strong></p>
+
+<a href="/chat/{{ prop.username }}" class="btn btn-primary">Message Owner</a>
+<br><br>
+<a href="/properties" class="btn btn-secondary">Back to listings</a>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container text-center my-4">
+    <h1 class="display-5 fw-bold">Welcome to FlatMate</h1>
+    <p class="lead">Find the perfect flatmate or list your own property in minutes.</p>
+    <a href="/properties" class="btn btn-primary btn-lg">Browse Properties</a>
+</div>
+
+<hr>
+
+<div class="container">
+    <h3>What we do</h3>
+    <p>
+        FlatMate helps people connect with others looking for shared accommodation.
+        Whether you’re a tenant searching for a room or a property owner looking for a flatmate,
+        our platform allows you to easily list, discover and contact potential matches.
+    </p>
+
+    <h4>What you can do</h4>
+    <div class="row">
+        <div class="col-md-6">
+            <ul>
+                <li>Create an account and log in</li>
+                <li>Post your own property with an image and description</li>
+                <li>Browse all available properties</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul>
+                <li>Send direct messages to other users</li>
+                <li>Keep track of all chats in your “My Chats” section</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <h4>Ready to get started?</h4>
+    <a href="/register" class="btn btn-success me-2">Create Account</a>
+    <a href="/login" class="btn btn-outline-secondary">Login</a>
+</div>
+
+{% endblock %}
